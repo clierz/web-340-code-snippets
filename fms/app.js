@@ -50,6 +50,7 @@ app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 
 
+// route requests
 app.get("/", function (request, response) {
     response.render("index", {
         title: "Home page"
@@ -63,8 +64,40 @@ app.get("/new", function (request, response) {
 });
 
 app.post("/process", function(request, response) {
-   console.log(request.body.txtName);
-   response.redirect("/");
+   // console.log(request.body.txtName);
+   if (!request.body.txtName) {
+       response.status(400).send("Entries must have a name");
+       return;
+   }
+
+   // get the request's form data
+   var fruitName = request.body.txtName;
+   console.log(fruitName);
+
+   // create a fruit model
+   var fruit = new Fruit({
+       name: fruitName
+   });
+
+   // save
+   fruit.save(function (error) {
+       if (error) throw error;
+
+       console.log(fruitName + " saved successfully!");
+   });
+
+   response.redirect("/list");
+});
+
+app.get("/list", function(request, response) {
+    Fruit.find({}, function(error, fruits) {
+       if (error) throw error;
+
+       response.render("list", {
+           title: "Fruit List",
+           fruits: fruits
+       });
+    });
 });
 
 
