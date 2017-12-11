@@ -17,12 +17,14 @@
         <thead class="thead-dark">
         <tr>
             <th>Name</th>
+            <th>Functions</th>
         </tr>
         </thead>
         <tbody>
         <% fruits.forEach(function (entry) { %>
         <tr>
             <td><%= entry.name %></td>
+            <td><a href="/view/<%= entry.name %>">VIEW</a></td>
         </tr>
         </tbody>
         <% }) %>
