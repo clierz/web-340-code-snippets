@@ -17,7 +17,7 @@ Carefully read the assigned chapters, videos, and narrative I've included under 
 
 Most exercises and assignments have runnable sample code so you can visually see the concept "in action."  Assignments are broken into "milestones" and each "milestone" builds on the last.  
 
-Approach every week from top-to-bottom and do not move to the next assignment/exericse without fully understanding the previous. 
+Approach every week from top-to-bottom and do not move to the next assignment/exercise without fully understanding the previous.
 
 ```bash
 git clone https://github.com/rrkrasso/web-340-code-snippets.git
